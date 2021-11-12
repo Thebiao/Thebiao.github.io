@@ -1,0 +1,103 @@
+<meta charset="UTF-8">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<!-- 用来禁止浏览器缓存，使得每次请求test.html都从服务器下载最新版本 -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<meta name="format-detection" content="telephone=yes">
+
+<script>
+        var SERVER_PATH = "http://59.172.226.14:8082";
+        var pageMeta = {"datas":{},"models":[],"routes":{},"params":{"curDate":"2021-11-12 12:09:17","userId":"19203180526","roleId":"201f2867c18e486bab766d92de48022b"}} ;
+        var contextPath = "/xsfw";
+        var rootPath = "/xsfw";
+        rootPath = rootPath.replace("http:", window.location.protocol);
+        rootPath = rootPath.replace(":80/", window.location.port+"/");
+        rootPath = rootPath.replace(":443/", window.location.port+"/");
+        var hostPath = "http://xgapp.whxy.edu.cn:80/xsfw";
+        hostPath = hostPath.replace("http:", window.location.protocol);
+        hostPath = hostPath.replace(":80/", window.location.port+"/");
+        hostPath = hostPath.replace(":443/", window.location.port+"/");
+        var path ="/xsfw";
+        path = path.replace("http:", window.location.protocol);
+        path = path.replace(":80/", window.location.port+"/");
+        path = path.replace(":443/", window.location.port+"/");
+        window.WIS_CONFIG = {
+            ROOT_PATH: rootPath,
+            PATH: path,
+            APPID: "5027685304497491",
+            APPNAME: "swmxsqjapp",
+            RES_SERVER: "http://59.172.226.14:8082",
+            HOST_PATH:hostPath,
+            wxType:"null"
+        }
+        window.WIS_CONFIG.STATIC_TIMESTAMP = "v";
+        WIS_CONFIG.AUTH_MODE = "1";
+		WIS_CONFIG.YYPJ_ENABLE = "0";
+        var userId = pageMeta.params.userId?pageMeta.params.userId:"19203180526";
+        var roleId = pageMeta.params.roleId;
+        window.APP_CONFIG = {};
+        var SWROOT_PATH = "http://xgapp.whxy.edu.cn:80/xsfw/sys/swpubapp";
+        SWROOT_PATH = SWROOT_PATH.replace("http:", window.location.protocol);
+        SWROOT_PATH = SWROOT_PATH.replace(":80/", window.location.port+"/");
+        SWROOT_PATH = SWROOT_PATH.replace(":443/", window.location.port+"/");
+</script>
+
+<link rel="stylesheet" href="http://59.172.226.14:8082/bh_components/mobile/1.0.0/bh-lib.min.css">
+<link rel="stylesheet" href="http://59.172.226.14:8082/fe_components/iconfont_mobile/iconfont.css">
+<link rel="stylesheet" href="http://59.172.226.14:8082/fe_components/iconfont_xg/iconfont.css">
+<link rel="stylesheet" href="public/css/style.css">
+<link rel="stylesheet" href="../../swpubapp/public/mob/css/mob.css">
+<link rel="stylesheet" href="http://59.172.226.14:8082/fe_components/skins/mint2.0/skin.css">
+<link rel="stylesheet" href="http://59.172.226.14:8082/fe_components/mobile/MINT/style.min.css">
+<link rel="stylesheet" href="http://59.172.226.14:8082/bower_components/cropper/cropper.min.css">
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script src="http://59.172.226.14:8082/bower_components/requirejs/require.js"></script>
+<script src="../../swpubapp/public/mob/js/mobutil.js"></script>
+<script src="../../swpubapp/public/mob/js/spriteFrame.js"></script>
+<script src="http://59.172.226.14:8082/bower_components/qrcode.js/qrcode.js"></script>
+<script src="http://59.172.226.14:8082/fe_components/mobile/bh_utils_mobile.js"></script>
+<script src="../../swpubapp/public/mob/js/i18nUtil.js"></script>
+
+
+    <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=Y7ClR0iiCjpNQ1jNt9cyf6UCtoMmWvnQ"></script> -->
+    <script>
+		var curDate = pageMeta.params.curDate.substring(0,10);
+	</script>
+</head>
+
+<body>
+	
+<div id="selectrole">
+	<!-- 路由出口 -->
+	<!-- 路由匹配到的组件将渲染在这里 -->
+	<router-view></router-view>
+</div>
+<div id="app">
+	<!-- 路由出口 -->
+	<!-- 路由匹配到的组件将渲染在这里 -->
+	<keep-alive>
+		<router-view v-if="$route.meta.keepAlive"></router-view>
+	</keep-alive>
+	<router-view v-if="!$route.meta.keepAlive"></router-view>
+	<yypj-tb></yypj-tb>
+</div>
+	
+
+<div id="baidumapdiv" style="display: none;"></div>
+<script type="text/javascript">
+var baidu_ak="AWZMEvoIVMqNk9y29R8VOjBeqQ7wTYHS";
+function loadJScript() {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src = "//api.map.baidu.com/api?v=2.0&ak="+baidu_ak+"&callback=init";
+	document.body.appendChild(script);
+}
+window.onload = loadJScript;
+</script>
+<script src="../../swpubapp/public/mob/component/map/map.js?v=1636338718547"></script>
+</body>
+
+</html>
